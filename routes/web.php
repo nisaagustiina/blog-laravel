@@ -23,14 +23,15 @@ Route::get('/', [FrontController::class, 'index'])->name('homepage');
 Route::get('post/{slug}', [FrontController::class, 'show'])->name('show');
 Route::get('category/{category:slug}', [FrontController::class, 'category'])->name('category');
 Route::get('tag/{tag:slug}', [FrontController::class, 'tag'])->name('tag');
+Route::get('/search',[FrontController::class,'search'])->name('search');
 
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth'])->group(function (){
-    Route::resource('categories', CategoryController::class);
-    Route::resource('tags', TagController::class);
+    Route::resource('categories', CategoryController::class)->middleware(['auth','role:admin']);
+    Route::resource('tags', TagController::class)->middleware(['auth','role:admin']);
 
     Route::get('posts/trash', [PostController::class, 'trash'])->name('posts.trash');
     Route::post('posts/trash/{id}/restore', [PostController::class, 'restore'])->name('posts.restore');

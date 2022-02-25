@@ -26,6 +26,7 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         $categories = Category::all();
@@ -208,4 +209,5 @@ class PostController extends Controller
         return redirect()->back()->with('success', 'Data deleted successfully');
         }
     }
+
 }

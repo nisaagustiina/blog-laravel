@@ -18,12 +18,22 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(5)->create();
 
-        // DB::table('users')->insert([
-        //     'name' => 'Nisa',
-        //     'email' => 'admin@gmail.com',
-        //     'password' => Hash::make('admin123'),
-        // ]);
+        $this->call([
+            UserSeeder::class,
+        ]);
 
-        Post::factory(5)->create();
+        $this->call([
+            CategorySeeder::class,
+        ]);
+
+        $this->call([
+            TagSeeder::class,
+        ]);
+
+        $this->call([
+            PostSeeder::class,
+        ]);
+
+        Post::factory(10)->create();
     }
 }

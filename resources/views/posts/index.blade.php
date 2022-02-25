@@ -27,9 +27,11 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
+                            <th scope="col">Cover</th>
                             <th scope="col">Title</th>
-                            <th scope="col">Desc</th>
+                            <th scope="col">Description</th>
                             <th scope="col">Category</th>
+                            <th scope="col">Writer</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -37,16 +39,20 @@
                         @foreach ($posts as $key => $item)
                             <tr>
                                 <td scope="row">{{ ++$key }}</td>
+                                <td><img src="{{ asset('storage/'.$item->cover) }}" alt=""></td>
                                 <td>{{ $item->title }}</td>
                                 <td>{{ Str::limit(strip_tags($item->desc),60) }}</td>
                                 <td>{{ $item->category->name }}</td>
+                                <td>{{ $item->user->name }}</td>
                                 <td>
-                                    <a href="{{ route('posts.edit', $item->id) }}" class="btn btn-success btn-sm">Edit</a>
-                                    <form action="{{ route('posts.destroy',[$item->id]) }}" method="post" class="d-inline" onsubmit="return confirm('Move post to trash?')">
-                                    @csrf
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="submit" value="Delete" class="btn btn-danger btn-sm">
-                                    </form>
+                                    <div style="display:flex">
+                                        <a style="margin-right:5px" href="{{ route('posts.edit', $item->id) }}" class="btn btn-success btn-sm">Edit</a>
+                                        <form action="{{ route('posts.destroy',[$item->id]) }}" method="post" class="d-inline" onsubmit="return confirm('Move post to trash?')">
+                                        @csrf
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

@@ -13,6 +13,13 @@
 <h1 class="text-center my-3">All Article</h1>
 @endif
 
+    <form class="form" method="get" action="{{ route('search') }}">
+        <div class="form-group col-md-4 col-sm-12 mb-3">
+            <input type="text" name="search" class="form-control w-75 d-inline" id="search" placeholder="Masukkan keyword">
+            <button type="submit" class="btn btn-primary mb-1">Cari</button>
+        </div>
+    </form>
+
     <div class="row">
         @foreach ($posts as $item)
         <div class="col-md-4 col-sm-12 mb-3">

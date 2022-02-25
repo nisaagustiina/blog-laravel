@@ -24,9 +24,11 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
+                            <th scope="col">Cover</th>
                             <th scope="col">Title</th>
-                            <th scope="col">Desc</th>
+                            <th scope="col">Description</th>
                             <th scope="col">Category</th>
+                            <th scope="col">Writer</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -34,19 +36,23 @@
                         @foreach ($posts as $key => $item)
                             <tr>
                                 <td scope="row">{{ ++$key }}</td>
+                                <td><img src="{{ asset('storage/'.$item->cover) }}" alt=""></td>
                                 <td>{{ $item->title }}</td>
                                 <td>{{ Str::limit(strip_tags($item->desc),60) }}</td>
                                 <td>{{ $item->category->name }}</td>
+                                <td>{{ $item->user->name }}</td>
                                 <td>
-                                    <form action="{{ route('posts.restore',$item->id) }}" method="post" class="d-inline">
-                                    @csrf
-                                    <input type="submit" value="Restore" class="btn btn-success btn-sm">
-                                    </form>
-                                    <form action="{{ route('posts.deletePermanent',[$item->id]) }}" method="post" class="d-inline" onsubmit="return confirm('Delete this data permanently?')">
-                                    @csrf
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="submit" value="Delete" class="btn btn-danger btn-sm">
-                                    </form>
+                                    <div style="display:flex">
+                                        <form action="{{ route('posts.restore',$item->id) }}" method="post" class="d-inline">
+                                        @csrf
+                                        <input style="margin-right:5px" type="submit" value="Restore" class="btn btn-success btn-sm">
+                                        </form>
+                                        <form action="{{ route('posts.deletePermanent',[$item->id]) }}" method="post" class="d-inline" onsubmit="return confirm('Delete this data permanently?')">
+                                        @csrf
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach
