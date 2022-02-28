@@ -18,7 +18,7 @@ class PostFactory extends Factory
             'cover' => 'download.jpg',
             'title' => $this->faker->sentence(mt_rand(2,8)),
             'slug' => $this->faker->slug(),
-            'desc' => $this->faker->paragraph(mt_rand(5,10)),
+            'desc' => $this->faker->paragraph(mt_rand(10,20)),
             'keywords' => $this->faker->word(),
             'meta_desc' => $this->faker->paragraph(),
             'category_id' => mt_rand(1,3),
