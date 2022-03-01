@@ -35,19 +35,22 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item {{ request()->is('tags') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{route('tags.index')}}">Tags</a>
+                            <a class="nav-link" href="{{ route('tags.index') }}">Tags</a>
                         </li>
                         <li class="nav-item {{ request()->is('categories') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{route('categories.index')}}">Categories</a>
+                            <a class="nav-link" href="{{ route('categories.index') }}">Categories</a>
                         </li>
                         <li class="nav-item dropdown {{ request()->is('posts') ? 'active' : '' }}">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Posts
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{route('posts.index')}}">Data</a>
-                                <a class="dropdown-item" href="{{route('posts.trash')}}">Trash</a>
+                                <a class="dropdown-item" href="{{ route('posts.index') }}">Data</a>
+                                <a class="dropdown-item" href="{{ route('posts.trash') }}">Trash</a>
                             </div>
+                        </li>
+                        <li class="nav-item {{ request()->is('user') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('users.index') }}">Users</a>
                         </li>
                     </ul>
 

@@ -31,7 +31,7 @@
                             <th scope="col">Title</th>
                             <th scope="col">Description</th>
                             <th scope="col">Category</th>
-                            <th scope="col">Writer</th>
+                            <th scope="col">Author</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
