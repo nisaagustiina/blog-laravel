@@ -15,7 +15,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="cover">Cover</label>
-                        <input type="file" name="cover" id="cover" class="form-control @error('cover') is-invalid @enderror" value="{{ old('cover') }}" required>
+                        <input type="file" name="cover" id="cover" class="form-control @error('cover') is-invalid @enderror" value="{{ old('cover') }}" >
                         @error('cover')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -24,7 +24,7 @@
                     </div>
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}" required>
+                        <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}" >
                         @error('title')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -33,7 +33,7 @@
                     </div>
                     <div class="form-group">
                         <label for="desc">Description</label>
-                        <textarea name="desc" id="desc" cols="30" rows="10" class="form-control @error('desc') is-invalid @enderror" required>{{ old('desc') }}</textarea>
+                        <textarea name="desc" id="desc" cols="30" rows="10" class="form-control @error('desc') is-invalid @enderror" >{{ old('desc') }}</textarea>
                         @error('desc')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -42,7 +42,7 @@
                     </div>
                     <div class="form-group">
                         <label for="category">Category</label>
-                        <select name="category" id="category" class="form-control @error('category') is-invalid @enderror" required>
+                        <select name="category" id="category" class="form-control @error('category') is-invalid @enderror" >
                         <option value="" disabled selected>Choose One</option>
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="form-group">
                         <label for="tag">Tag</label>
-                        <select name="tags[]" id="tag" class="form-control select2 @error('tags') is-invalid @enderror" required multiple>
+                        <select name="tags[]" id="tag" class="form-control select2 @error('tags') is-invalid @enderror"  multiple>
                         @foreach ($tags as $tag)
                             <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                         @endforeach
@@ -69,7 +69,7 @@
                     </div>
                     <div class="form-group">
                         <label for="keywords">Keywords</label>
-                        <input type="text" name="keywords" id="keywords" class="form-control @error('keywords') is-invalid @enderror" value="{{ old('keywords') }}" required>
+                        <input type="text" name="keywords" id="keywords" class="form-control @error('keywords') is-invalid @enderror" value="{{ old('keywords') }}" >
                         @error('keywords')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -78,7 +78,7 @@
                     </div>
                     <div class="form-group">
                         <label for="meta_desc">Meta Desc</label>
-                        <input type="text" name="meta_desc" id="meta_desc" class="form-control @error('meta_desc') is-invalid @enderror" value="{{ old('meta_desc') }}" required>
+                        <input type="text" name="meta_desc" id="meta_desc" class="form-control @error('meta_desc') is-invalid @enderror" value="{{ old('meta_desc') }}" >
                         @error('meta_desc')
                             <div class="invalid-feedback">
                                 {{ $message }}

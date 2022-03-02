@@ -87,7 +87,12 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="password">Password</label>
-                                                    <input type="password" name="password" class="form-control" id="password" >
+                                                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" >
+                                                    @error('password')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}    
+                                                    </div>
+                                                    @enderror
                                                     <small >*don't fill it out if you don't want to change</small>
                                                 </div>
                                                 <div class="form-group">

@@ -48,6 +48,50 @@ class PostSeeder extends Seeder
         $post->user_id = '2';
         $post->save();
 
+        $post = new Post;
+        $post->cover = 'images/blog/VqEYtpFq49J7mmU7YUs2Msy4AZAjp5adx2FhtaXL.jpg';
+        $post->title = 'tes4';
+        $post->slug = 'tes-slug4';
+        $post->desc = 'tes deskripsi lengkap';
+        $post->keywords = 'tes';
+        $post->meta_desc = 'tes deskripsi singkat';
+        $post->category_id = '3';
+        $post->user_id = '1';
+        $post->save();
+
+        $post = new Post;
+        $post->cover = 'images/blog/VqEYtpFq49J7mmU7YUs2Msy4AZAjp5adx2FhtaXL.jpg';
+        $post->title = 'tes5';
+        $post->slug = 'tes-slug5';
+        $post->desc = 'tes deskripsi lengkap';
+        $post->keywords = 'tes';
+        $post->meta_desc = 'tes deskripsi singkat';
+        $post->category_id = '2';
+        $post->user_id = '1';
+        $post->save();
+
+        $post = new Post;
+        $post->cover = 'images/blog/VqEYtpFq49J7mmU7YUs2Msy4AZAjp5adx2FhtaXL.jpg';
+        $post->title = 'tes6';
+        $post->slug = 'tes-slug6';
+        $post->desc = 'tes deskripsi lengkap';
+        $post->keywords = 'tes';
+        $post->meta_desc = 'tes deskripsi singkat';
+        $post->category_id = '1';
+        $post->user_id = '2';
+        $post->save();
+
+        $post = new Post;
+        $post->cover = 'images/blog/VqEYtpFq49J7mmU7YUs2Msy4AZAjp5adx2FhtaXL.jpg';
+        $post->title = 'tes7';
+        $post->slug = 'tes-slug7';
+        $post->desc = 'tes deskripsi lengkap';
+        $post->keywords = 'tes';
+        $post->meta_desc = 'tes deskripsi singkat';
+        $post->category_id = '2';
+        $post->user_id = '1';
+        $post->save();
+
         DB::table('post_tag')->insert([
             'post_id' => 1,
             'tag_id' => 2,
@@ -66,6 +110,26 @@ class PostSeeder extends Seeder
         DB::table('post_tag')->insert([
             'post_id' => 3,
             'tag_id' => 2,
+        ]);
+
+        DB::table('post_tag')->insert([
+            'post_id' => 4,
+            'tag_id' => 6,
+        ]);
+
+        DB::table('post_tag')->insert([
+            'post_id' => 5,
+            'tag_id' => 3,
+        ]);
+
+        DB::table('post_tag')->insert([
+            'post_id' => 6,
+            'tag_id' => 7,
+        ]);
+
+        DB::table('post_tag')->insert([
+            'post_id' => 7,
+            'tag_id' => 1,
         ]);
     }
 }

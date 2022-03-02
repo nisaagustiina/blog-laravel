@@ -98,6 +98,6 @@ class TagController extends Controller
         $tag = Tag::findOrFail($id);
         $tag->delete();
 
-        return redirect()->route('categories.index')->with('success','Data deleted successfully');
+        return redirect()->back()->with('success','Data deleted successfully');
     }
 }

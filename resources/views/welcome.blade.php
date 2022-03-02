@@ -2,27 +2,29 @@
 @section('content')
 
 <div class="container">
-
-@isset($category)
-<h1 class="text-center my-3">Article Category: {{ $category->name }}</h1>
-@endisset
-@isset($tag)
-<h1 class="text-center my-3">Article Tag: {{ $tag->name }}</h1>
-@endisset
-@if (!isset($tag) && !isset($category))
-<h1 class="text-center my-3">All Article</h1>
-@endif
-
-    <form class="form" method="get" action="{{ route('search') }}">
-        <div class="form-group col-md-4 col-sm-12 mb-3">
-            <input type="text" name="search" class="form-control w-75 d-inline" id="search" placeholder="Masukkan keyword">
-            <button type="submit" class="btn btn-primary mb-1">Cari</button>
-        </div>
-    </form>
+    @isset($category)
+    <h2 class="text-center my-3">Article Category: {{ $category->name }}</h2>
+    @endisset
+    @isset($tag)
+    <h2 class="text-center my-3">Article Tag: {{ $tag->name }}</h2>
+    @endisset
+    @if (!isset($tag) && !isset($category))
+    <h2 class="text-center my-3">All Article</h2>
+    @endif
 
     <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <form class="form" method="get" action="{{ route('search') }}">
+                <div class="input-group mb-4">
+                    <input type="text" name="search" class="form-control" id="search" placeholder="Searching">
+                    <div class="input-group-append">
+                        <input type="submit" class="btn btn-primary btn-xs" value="Search">
+                    </div>
+                </div>
+            </form>
+        </div>
         @foreach ($posts as $item)
-        <div class="col-md-4 col-sm-12 mb-3">
+        <div class="col-md-4 mb-3">
             <div class="card">
                 <img src="{{ asset('storage/'.$item->cover) }}" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -34,7 +36,7 @@
                 <div class="card-footer">
                     <div class="d-flex mx-auto">
                         @foreach ($item->tags as $tags)
-                        <a href="{{ route('tag', $tags->slug) }}"><span class="badge badge-secondary mr-1">{{ $tags->name }}</span> </a>
+                        <a style="text-decoration: none" href="{{ route('tag', $tags->slug) }}"><span class="badge badge-secondary mr-1">{{ $tags->name }}</span> </a>
                         @endforeach
                         <small class="text-muted ml-auto">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans()}}</small>
                     </div>
@@ -43,11 +45,8 @@
         </div>
         @endforeach
     </div>
-        {{-- Current Page: {{ $posts->currentPage() }}<br>
-        Jumlah Data: {{ $posts->total() }}<br>
-        Data perhalaman: {{ $posts->perPage() }}<br> --}}
-        <br>
-        {{ $posts->links() }}
-       
+    <div class="col-md-2 offset-md-10">
+        {{ $posts->links() }} 
+    </div>   
 </div>
 @endsection
