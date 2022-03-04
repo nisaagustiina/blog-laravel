@@ -36,7 +36,7 @@
                         @foreach ($posts as $key => $item)
                             <tr>
                                 <td scope="row">{{ ++$key }}</td>
-                                <td><img src="{{ asset('storage/'.$item->cover) }}" alt=""></td>
+                                <td><img src="{{ asset('storage/'.$item->cover) }}" alt="" width="150px"></td>
                                 <td>{{ $item->title }}</td>
                                 <td>{{ Str::limit(strip_tags($item->desc),60) }}</td>
                                 <td>{{ $item->category->name }}</td>
